@@ -61,6 +61,11 @@
     <div class="navbar-menu">
       <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
         <!-- TODO -->
+        <a class="navbar-item" href="https://anonymous.4open.science/r/Androidgen-7F18" style="display: flex; justify-content: center; align-items: center;">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+        </a>
 
         <!-- <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
@@ -93,7 +98,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">
-              Androidgen
+              AndroidGen: Building an Android Language Agent under Data Scarcity
             </h1>
             <!-- TODO -->
             <div class="is-size-5 publication-authors">
@@ -155,34 +160,19 @@
         <div class="column highlight is-8 content">
           <span style="font-weight:bold">
             <!-- TODO -->
-            Large Language Models (LLMs) have opened up a world of possibilities for various NLP tasks, sparking optimism for the future.
-            Despite their potential, LLMs are not yet widely harnessed to aid
-            in daily life tasks as agents on real mobile devices. One of the most
-            significant challenges is the need for highquality data sources.
-            Even state-of-the-art models fail to perform tasks due to insufficient capabilities and the absence of robust data evaluation. On
-            the other hand, human annotation is often hindered by time constraints, labor intensity, and inconsistencies in user habits. Given
-            these challenges, we develop A3Pipe (Automated Android Agent
-            Pipeline). We propose an agent algorithm comprising ExpSearch,
-            Planning, and AutoCheck to enhance the capabilities of agents
-            to reason and generalize under data scarcity. Furthermore, we introduce Goal Conditioned Evaluator for mobile devices that can
-            assess the completion of task trajectories, which is helpful for data
-            selection and augmentation. Our system achieves an 82.4% improvement on AndroidWorld, significantly enhancing the efficiency of
-            automatic data collection. Additionally, we train Llama-3-70B on
-            trajectories selected by the Goal Conditioned Evaluator, resulting
-            in a 222% enhancement, demonstrating the effectiveness of our
-            data selection strategy. The data pipeline can fully automate the
-            construction of Android navigation data at a low cost and time
-            investment, with experiments indicating that its cost is only 5%
-            compared to human annotation and efficiency 5.85 times greater.
+            Large Language Models have opened up a world of possibilities for various NLP tasks, sparking optimism for the future.
+            Despite their potential, LLMs have yet to be widely used as agents on real mobile devices.
+            The main challenge is the need for high-quality data sources.
+            Even SOTA LLMs fail to perform tasks due to insufficient capabilities and the absence of robust data evaluation.
+            On the other hand, human annotation is often hindered by time constraints and labor intensity.
+            Given these challenges, we develop a framework called AndroidGen to enhance the capabilities of LLM-based agents to reason and generalize under data scarcity. 
+            In addition, we propose an Android data pipeline based on AndroidGen and train Llama-3-70B on the data collected through this pipeline to develop an open-source mobile agent without manually labeled trajectories.
+            We extensively evaluate AndroidGen with AndroidWorld, AitW, and various popular applications, demonstrating its improvements and revealing potential areas for future improvement.
+
           </span>
           <br>
         </div>
       </div>
-      <a class="navbar-item" href="https://anonymous.4open.science/r/Androidgen-7F18" style="display: flex; justify-content: center; align-items: center;">
-        <span class="icon" style="font-size: 3em;">
-          <i class="fab fa-github"></i>
-        </span>
-      </a>
       <br>
       <!-- TODO -->
       <div class="column is-full-width" id="teaserVideos">
@@ -356,7 +346,7 @@
         <div class="column">
           <md-block clss="content">
             <img src="./static/images/demo-android (1)_00.png" alt="Join a community" width="95%">  
-            <p><strong>As shown in the figure, we gave Examples of Androidgen’s execution on four user tasks.</p></strong>
+            <p><strong>As shown in the figure, we gave Examples of AndroidGen’s execution on four user tasks.</p></strong>
           </md-block>
         </div>
     </div>
@@ -450,34 +440,34 @@
       <div class="column">
         <md-block class="content">
           <!-- TODO -->
-          <img src="./static/images/main_00.png" alt="Framework" style="width:100%">
-          Overview of our Androidgen system designed to complete tasks in Android. Our process comprises three components: preliminary, task execution, and update. 
+          <img src="./static/images/main.png" alt="Framework" style="width:100%">
+          Overview of our AndroidGen system designed to complete tasks in Android. 
+          Our process comprises three stages: preliminary, task execution, and update. 
           <br>
-          Preliminary (a): We use dense retrieval to extract the top1 similar tasks and trajectories from the database and feed them into the agent
+          Preliminary (a): ExpSearch retrieve the top-1 similar tasks and trajectories from the database and feed them into the agent. 
           <br>
-          Task Execution (b): The agent generates or maintains a plan and creates operational instructions based on the plan and given examples. The Auto Check module verifies these instructions, executing them if successful or regenerating them if not. 
-          <br>
-          Update (c): Our Goal Conditioned Evaluator assesses the recorded trajectories and updates the database accordingly.
+          Task Execution (b): ReflectPlan reflects and updates the plan status. Then, the agent generates operations based on the plan and retrieval example. AutoCheck verifies these operations, executing them if successful or regenerating them if not.
+          <br> 
+          Update (c): StepCritic assesses the trajectories in fine-grand and updates the database accordingly.
         </md-block>
       </div>
     </div>
     <br>
     <br>
     <div class="container is-max-widescreen">
-      <h2 class="title">Goal Conditioned Evaluator</h2>
+      <h2 class="title">StepCritic</h2>
       <div class="column">
         <md-block class="content">
           <!-- TODO -->
           <div style="text-align: center;">
             <img src="./static/images/data_collection_00.png" alt="data" style="width:50%; display: inline-block;">
           </div>
-          <p> As shown in this figure, we input the complete operation sequence,
-            along with the final state of the device, to enhance the trajectory’s
-            information density under the constraint of limited context length.
-            Furthermore, for complex tasks with multiple requirements, while
-            agents may not fully complete the tasks, portions of these trajectories are still accurate and possess significant learning value. Discarding such data means a substantial waste within our data pipeline.
-            Therefore, we instruct the evaluator to decompose tasks into multiple subgoals and assess whether each subgoal is achieved and the
-            corresponding steps.</p>
+          <p> we input the complete operation 
+            sequence, along with the final state of the device, to 
+            enhance the trajectory’s information density under 
+            the constraint of limited context length. Then, we 
+            instruct StepCritic to assess whether each sub-goal
+            is achieved and the corresponding steps.</p>
         </md-block>
       </div>
     </div>
