@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Androidgen">
+  <meta name="keywords" content="Natural Language Interface">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Androidgen</title>
+
+  <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+
+  <!-- Load d3.js -->
+  <script src="https://d3js.org/d3.v4.js"></script>
+
+  <!-- Load plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <!-- Color palette -->
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3plus-text@1"></script>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZNP3SCQ1V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-MZNP3SCQ1V');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <!-- TODO -->
+
+        <!-- <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://arxiv.org/abs/2201.10608">
+              DOM-LM
+            </a>
+            <a class="navbar-item" href="https://github.com/dki-lab/Pangu/">
+              Pangu
+            </a>
+            <a class="navbar-item" href="https://osu-nlp-group.github.io/MagicBrush/">
+              MagicBrush
+            </a>
+            <a class="navbar-item" href="https://dki-lab.github.io/LLM-Planner/">
+              LLM-Planner
+            </a>
+          </div>
+        </div> -->
+      </div>
+
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-widescreen">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              Androidgen
+            </h1>
+            <!-- TODO -->
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Anonymous Author(s)</span>
+            </div>
+
+            <!-- <div class="is-size-5 publication-authors">
+              <span class="author-block">Tsinghua University</span>
+            </div>
+            <i style="font-size: 15px !important;">*Corresponding Authors.</i> -->
+
+            <!--div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>-->
+                <!--<span class="link-block">
+                  <a href="https://www.youtube.com/" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>-->
+                
+                <!--span class="link-block">
+                  <a href="https://github.com/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Demo</span>
+                  </a>
+                  <a href="https://github.com/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fa fa-code"></i>
+                    </span>
+                    <span>Source Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+            <!-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="hero teaser">
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered">
+        <div class="column highlight is-8 content">
+          <span style="font-weight:bold">
+            <!-- TODO -->
+            Large Language Models (LLMs) have opened up a world of possibilities for various NLP tasks, sparking optimism for the future.
+            Despite their potential, LLMs are not yet widely harnessed to aid
+            in daily life tasks as agents on real mobile devices. One of the most
+            significant challenges is the need for highquality data sources.
+            Even state-of-the-art models fail to perform tasks due to insufficient capabilities and the absence of robust data evaluation. On
+            the other hand, human annotation is often hindered by time constraints, labor intensity, and inconsistencies in user habits. Given
+            these challenges, we develop A3Pipe (Automated Android Agent
+            Pipeline). We propose an agent algorithm comprising ExpSearch,
+            Planning, and AutoCheck to enhance the capabilities of agents
+            to reason and generalize under data scarcity. Furthermore, we introduce Goal Conditioned Evaluator for mobile devices that can
+            assess the completion of task trajectories, which is helpful for data
+            selection and augmentation. Our system achieves an 82.4% improvement on AndroidWorld, significantly enhancing the efficiency of
+            automatic data collection. Additionally, we train Llama-3-70B on
+            trajectories selected by the Goal Conditioned Evaluator, resulting
+            in a 222% enhancement, demonstrating the effectiveness of our
+            data selection strategy. The data pipeline can fully automate the
+            construction of Android navigation data at a low cost and time
+            investment, with experiments indicating that its cost is only 5%
+            compared to human annotation and efficiency 5.85 times greater.
+          </span>
+          <br>
+        </div>
+      </div>
+      <a class="navbar-item" href="https://anonymous.4open.science/r/Androidgen-7F18" style="display: flex; justify-content: center; align-items: center;">
+        <span class="icon" style="font-size: 3em;">
+          <i class="fab fa-github"></i>
+        </span>
+      </a>
+      <br>
+      <!-- TODO -->
+      <div class="column is-full-width" id="teaserVideos">
+        <!-- 第一行 -->
+        <div class="columns is-centered is-variable is-0">
+            <div class="column is-one-quarter video-column">
+                <div class="overlay">
+                    <p>(a) Search for Cinemark Century Mountain View 16, get directions for driving and start navigation.</p>
+                </div>
+                <video class="video" controls autoplay playsinline muted loop>
+                    <source src="./static/videos/demo1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="column is-one-quarter video-column">
+                <div class="overlay">
+                    <p>(b) Send a tweet post with the content "Hello World!".</p>
+                </div>
+                <video class="video" controls autoplay playsinline muted loop>
+                    <source src="./static/videos/demo4.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="column is-one-quarter video-column">
+                <div class="overlay">
+                    <p>(c) Enter a community page and ask to join.</p>
+                </div>
+                <video class="video" controls autoplay playsinline muted loop>
+                    <source src="./static/videos/demo6.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="column is-one-quarter video-column">
+                <div class="overlay">
+                    <p>(d) Search for the channel "tesla" and subscribe to the channel.</p>
+                </div>
+                <video class="video" controls autoplay playsinline muted loop>
+                    <source src="./static/videos/demo7.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <!-- 第二行 -->
+        <div class="columns is-centered is-variable is-0">
+            <div class="column is-one-quarter video-column">
+                <div class="overlay">
+                    <p>(e) Search for nearby restaurants and get directions to the first one in the list.</p>
+                </div>
+                <video class="video" controls autoplay playsinline muted loop>
+                    <source src="./static/videos/demo2.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="column is-one-quarter video-column">
+                <div class="overlay">
+                    <p>(f) Search for the user Lebron James and follow him.</p>
+                </div>
+                <video class="video" controls autoplay playsinline muted loop>
+                    <source src="./static/videos/demo5.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="column is-one-quarter video-column">
+                <div class="overlay">
+                    <p>(g) Search for the artist Eric Clapton, enter his artist page, and play his playlist.</p>
+                </div>
+                <video class="video" controls autoplay playsinline muted loop>
+                    <source src="./static/videos/demo8.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="column is-one-quarter video-column">
+                <div class="overlay">
+                    <p>(h) Search the song "Smooth Criminal" and add it to my Liked Songs playlist.</p>
+                </div>
+                <video class="video" controls autoplay playsinline muted loop>
+                    <source src="./static/videos/demo9.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <!-- 第三行 -->
+        <div class="columns is-centered is-variable is-0">
+            <div class="column is-one-quarter video-column">
+                <div class="overlay">
+                    <p>(i) Record an audio clip and save it with name "presentation_fGwr.m4a" using Audio Recorder.</p>
+                </div>
+                <video class="video" controls autoplay playsinline muted loop>
+                    <source src="./static/videos/demo10.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="column is-one-quarter video-column">
+                <div class="overlay">
+                    <p>(j) Search for nearby hotel rooms which can host 4 adults and check availability of one hotel.</p>
+                </div>
+                <video class="video" controls autoplay playsinline muted loop>
+                    <source src="./static/videos/demo3.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="column is-one-quarter video-column">
+                <div class="overlay">
+                    <p>(k) Take one video.</p>
+                    <p> </p>
+                </div>
+                <video class="video" controls autoplay playsinline muted loop>
+                    <source src="./static/videos/demo11.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="column is-one-quarter video-column">
+                <div class="overlay">
+                    <p>(l) Create a new contact for Hugo Pereira. Their number is +13920741751.</p>
+                </div>
+                <video class="video" controls autoplay playsinline muted loop>
+                    <source src="./static/videos/demo12.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        /* 设置每列宽度为一行的四分之一，使每行放四个视频 */
+        .video-column {
+            width: 25%;
+            padding: 10px; /* 可根据需要调整间距 */
+            box-sizing: border-box; /* 确保padding不会影响总宽度 */
+            position: relative; /* 用于定位 overlay */
+        }
+    
+        .video {
+            width: 100%; /* 确保视频占满列宽 */
+            height: auto; /* 保持视频宽高比 */
+            display: block; /* 强制让视频以块显示，避免让上下的元素影响其布局 */
+        }
+    
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    
+        .overlay p {
+            margin: 0;
+            font-size: 1em;
+        }
+    </style>
+    
+    <script>
+        var video = document.getElementById("teaserVideos").getElementsByClassName("video");
+        for (var i = 0; i < video.length; i++) {
+            video[i].playbackRate = 0.5;
+            video[i].play();
+        }
+    </script>
+  </section>
+  <br>
+  <br>
+  <br>
+  <section>
+    <div class="container is-max-widescreen">
+      <h2 class="title">Performance</h2>
+        <!-- Experiment 1 -->
+        <div style="text-align: center;">
+          <img src="./static/images/successrate.png" alt="Experiment" width="95%">
+          <p><strong>The success rates of popular mobile agents and humans on AndroidWorld</strong></p>
+        </div>
+        <br>
+        <br>
+        <br>
+    </div>
+    <br>
+    <br>
+    <div class="container is-max-widescreen">
+      <h2 class="title">User Task Examples</h2>
+        <div class="column">
+          <md-block clss="content">
+            <img src="./static/images/demo-android (1)_00.png" alt="Join a community" width="95%">  
+            <p><strong>As shown in the figure, we gave Examples of Androidgen’s execution on four user tasks.</p></strong>
+          </md-block>
+        </div>
+    </div>
+  </section>
+  <!-- <section class="section">
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <md-block>
+              Recent advances in large language models (LLMs) have fueled
+              progress in numerous NLP tasks, notably intelligent agent tasks
+              such as web navigation—an area under active exploration. However,
+              language model-driven agents exhibit suboptimal performance in
+              real-world webpages due to three factors: (1) webpage complexity,
+              (2) HTML text exceeding model processing capacity, and (3) the
+              open-domain nature of the web. As a result, even the most advanced
+              agents falter in practical applications. We develop AutoWebGLM,
+              a language model-driven automated web navigation agent built
+              on the open ChatGLM3-6B model. Inspired by human browsing
+              patterns, we design an HTML simplification algorithm to represent
+              webpages, preserving vital information succinctly. We employ a hy-
+              brid human-AI method to build web browsing data for curriculum
+              training. Then, we bootstrap the model by reinforcement learning
+              and rejection sampling to further facilitate webpage comprehension,
+              browser operations, and efficient task decomposition by itself. Addi-
+              tionally, we establish a bilingual (Chinese and English) benchmark—
+              AutoWebBench—for real-world web browsing tasks. We evaluate
+              AutoWebGLM across diverse real-world web navigation bench-
+              marks, revealing its strong capabilities in the real environment.
+              Demonstrations with the Chrome extension of AutoWebGLM can
+              be found at <a href="https://nuc-fusion.github.io/AutoWebGLM/">https://nuc-fusion.github.io/AutoWebGLM/</a>.
+            </md-block>
+          </div>
+          <br>
+          <div class="content has-text-justified">
+            <md-block>
+              *Updates*
+              - 2023-8-6: We have updated the [GitHub Repo](https://github.com/OSU-NLP-Group/Mind2Web) with fine-tuning
+              code/models for MindAct.
+              - 2023-7-3: We have released the raw dump with the trace file, network traffic, screenshots and other
+              files. Please check out the
+              [data](https://app.globus.org/file-manager?origin_id=32e6b738-a0b0-47f8-b475-26bf1c5ebf19) and the [GitHub
+              Repo](https://github.com/OSU-NLP-Group/Mind2Web) for more details.
+              - 2023-6-13: We have released the training/test data and codebase for the paper. Please check out our
+              [GitHub Repo](https://github.com/OSU-NLP-Group/Mind2Web). 
+            </md-block>
+          </div>
+        </div>
+      </div>
+  </section> -->
+
+  <!--<section class="section">
+    <div class="container is-max-widescreen">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Introduction</h2>
+        <div class="content">
+          <p>
+            The concept of autonomous digital agents as helpful assistants is an enticing prospect. Enhanced by LLMs' formidable comprehension and response capabilities, we can envision various scenarios unimaginable before. For instance, an LLM-based agent could support a daily routine that summarizes the online news for us during breakfast. This integration of LLMs into everyday tasks heralds a significant shift in how we interact with technology, optimizing our efficiency and redefining the boundaries of machine-assisted productivity.
+          </p>
+          <p>
+            Tremendous efforts have been underway to construct auto web agents. One is AutoGPT, a popular open-source project that utilizes ChatGPT to integrate LLMs with predetermined tools such as web and local file browsing. Meanwhile, the development of agent-centric LLMs has gained significant momentum. Nevertheless, the majority of existing web agents are to date severely restricted in terms of practical applications, predominantly due to the following challenges:
+          </p>
+          <ul>
+            <li>A universal action space covering all necessary task executions across various websites is absent.</li>
+            <li>The diversity and complexity of webpages and their tendentious verbosity pose a significant challenge for LLMs to comprehend the content and carry out correct operations accurately.</li>
+            <li>Existing agents notably lack the capability for correct inference and self-checking on web tasks. Once caught in an erroneous loop, they struggle to rectify the issue promptly.</li>
+          </ul>
+          <p>
+            In this work, we introduce a deployable webpage browsing agent based on the open ChatGLM3-6B model. We propose various efficient data strategies to support the swift construction of a sizeable, reliable training dataset while state-of-the-art models cannot reliably complete data annotation tasks. Furthermore, by leveraging supervised and reinforcement learning methods, we train our model on top of the collected web agent dataset to achieve performance superiority on general webpage browsing tasks. A step further, we employ rejection sampling finetuning (RFT) for lifelong learning in specific web environments, enabling the agent to become an expert in a particular domain.
+          </p>
+          <p>
+            We develop a Chrome extension based on our model. Throughout our experiments, it can reason and perform operations on various websites to complete user tasks accurately, making it practically applicable to real-world services. In addition, we construct the first bilingual (English and Chinese) webpage browsing evaluation dataset, given that websites from different regions have substantial stylistic variations.
+          </p>
+          <p>
+            In conclusion, we make the following contributions in this paper:
+          </p>
+          <ul>
+            <li>We design and develop the our model agent for effectively completing web browsing tasks through curriculum learning, bootstrapped by self-sampling reinforcement learning, and RFT in the web browsing environment.</li>
+            <li>We construct a real webpage browsing operation dataset of approximately 10,000 traces using model-assisted and manual methods, including the bilingual (English and Chinese) web browsing benchmark.</li>
+            <li>We perform experiments to demonstrate that our model with 6B parameters achieves performance comparable to the most advanced LLM-based agents, and more importantly, it reaches a practically usable level for real-world web tasks.</li>
+          </ul>
+        </div>
+        <br>
+    <br>
+    <!-->
+  <section class="section">
+    <div class="container is-max-widescreen">
+      <h2 class="title">Framework</h2>
+      <div class="column">
+        <md-block class="content">
+          <!-- TODO -->
+          <img src="./static/images/main_00.png" alt="Framework" style="width:100%">
+          Overview of our Androidgen system designed to complete tasks in Android. Our process comprises three components: preliminary, task execution, and update. 
+          <br>
+          Preliminary (a): We use dense retrieval to extract the top1 similar tasks and trajectories from the database and feed them into the agent
+          <br>
+          Task Execution (b): The agent generates or maintains a plan and creates operational instructions based on the plan and given examples. The Auto Check module verifies these instructions, executing them if successful or regenerating them if not. 
+          <br>
+          Update (c): Our Goal Conditioned Evaluator assesses the recorded trajectories and updates the database accordingly.
+        </md-block>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="container is-max-widescreen">
+      <h2 class="title">Goal Conditioned Evaluator</h2>
+      <div class="column">
+        <md-block class="content">
+          <!-- TODO -->
+          <div style="text-align: center;">
+            <img src="./static/images/data_collection_00.png" alt="data" style="width:50%; display: inline-block;">
+          </div>
+          <p> As shown in this figure, we input the complete operation sequence,
+            along with the final state of the device, to enhance the trajectory’s
+            information density under the constraint of limited context length.
+            Furthermore, for complex tasks with multiple requirements, while
+            agents may not fully complete the tasks, portions of these trajectories are still accurate and possess significant learning value. Discarding such data means a substantial waste within our data pipeline.
+            Therefore, we instruct the evaluator to decompose tasks into multiple subgoals and assess whether each subgoal is achieved and the
+            corresponding steps.</p>
+        </md-block>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="container is-max-widescreen">
+      <h2 class="title">Demonstration</h2>
+      <div class="column">
+        <div class="content">
+          <!-- Audio Recorder -->
+          <h3>Audio Recorder</h3>
+          <p>The targeted task to be executed is "Record an audio clip using Audio Recorder app and save it". The actual execution steps can be summarized as follows:</p>
+          <ul>
+            <li>Step1: Click SearchBar</li>
+            <li>Step2: Type SearchBar "Audio Recorder"</li>
+            <li>Step3: Click "Audio Recorder"</li>
+            <li>Step4: Click "Start Recording"</li>
+            <li>Step5: Click "End Recording"</li>
+            <li>Step6: Save the file</li>
+          </ul>
+          <p>As the following figure shows, we end up on the screenshot with a recorded audio. We recorded a 12s audio recording, effectively completing the target task.</p>
+          <img src="./static/images/demo1.png" alt="Audio Recorder" width="95%">
+    
+          <!-- Phone Contact -->
+          <h3>Phone Contact</h3>
+          <p>The targeted task to be executed is "Create a new contact for Hugo Pereira. Their number is +13920741751". The actual execution steps can be summarized as follows:</p>
+          <ul>
+            <li>Step1: Click "Phone" App</li>
+            <li>Step2: Click "Contacts"</li>
+            <li>Step3: Click “Add” button</li>
+            <li>Step4: Type contact information</li>
+            <li>Step5: Save the contact</li>
+          </ul>
+          <p>As figure shows, we end up on the screenshot with a contact named Hugo Pereira. We add a contact with his name and phone number, effectively completing the target task.</p>
+          <img src="./static/images/demo2.png" alt="Phone Contact" width="95%">
+    
+          <!-- Delete File -->
+          <h3>Delete File</h3>
+          <p>The targeted task to be executed is "Delete the file banana.mp3 from the Android filesystem located in the Notifications folder within the sdkgphone storage area". The actual execution steps can be summarized as follows:</p>
+          <ul>
+            <li>Step1: Open "Files" App</li> 
+            <li>Step2: Click "Show roots"</li> 
+            <li>Step3: Click "sdkgphone"</li> 
+            <li>Step4: Click "Notifications"</li> 
+            <li>Step5: Scroll Down</li> 
+            <li>Step6: Long Press "banana.mp3"</li> 
+            <li>Step7: Click "Delete"</li> 
+            <li>Step8: Click "OK"</li> 
+          </ul>
+          <p>As the following figure shows, we end up on the screenshot in the Notifications folder. We delete the file banana.mp3, effectively completing the target task.</p>
+          <img src="./static/images/demo3.png" alt="Delete File" width="95%">
+    
+          <!-- Marking Map -->
+          <h3>Marking Map</h3>
+          <p>The targeted task is "Add a favorite location marker for 47.1303814, 9.5930117 in the OsmAnd maps app". The actual execution steps can be summarized as follows:</p>
+          <ul>
+            <li>Step1: Open app "OsmAnd" App</li>
+            <li>Step2: Click the "Search" button</li>
+            <li>Step3: Type "47.1303814, 9.5930117"</li>
+            <li>Step4: Click "Show on map"</li>
+            <li>Step5: Long Press</li>
+            <li>Step6: Click the "Add" button</li>
+            <li>Step7: Click the "Add Favorite" button</li>
+            <li>Step8: Click the "Save" button</li>
+          </ul>
+          <p>As the following figure shows, we end up on the OsmAnd maps app with a location marker. We add a favorite location marker, effectively completing the target task.</p>
+          <img src="./static/images/demo4.png" alt="Marking Map" width="95%">
+
+          <!-- Create Music Playlist -->
+          <h3>Create Music Playlist</h3>
+          <p>The targeted task to be executed is "Create a playlist in Retro Music titled 'Hip Hop Bangers 270' with the following songs, in order: Golden Days". The actual execution steps can be summarized as follows:</p>
+          <ul>
+                    <li>Step1: Open app "Retro Music" App</li>
+                    <li>Step2: Click "Playlist"</li>
+                    <li>Step3: Click "More Options"</li>
+                    <li>Step4: Click "New Playlist"</li>
+                    <li>Step5: Type "Hip Hop Bangers 270"</li>
+                    <li>Step6: Click "Create"</li>
+                    <li>Step7: Click "Songs"</li>
+                    <li>Step8: Long Press "Golden Days"</li>
+                    <li>Step9: Click "Add to playlist"</li>
+                    <li>Step10: Click "Hip Hop Bangers 270"</li>
+          </ul>
+          <p>As the following figure shows, we end up on the "Retro Music" playlist. We add "Golden Days" into the playlist, effectively completing the target task.</p>
+          <img src="./static/images/demo5.png" alt="Create Music Playlist" width="95%">
+
+          <!-- Turn Bluetooth Off -->
+          <h3>Turn Bluetooth Off</h3>
+          <p>The targeted task to be executed is "Turn Bluetooth off". The actual execution steps can be summarized as follows:</p>
+          <ul>
+                    <li>Step1: Open "Settings" App</li>
+                    <li>Step2: Click "Connected devices"</li>
+                    <li>Step3: Click "Connection preferences"</li>
+                    <li>Step4: Click "Bluetooth"</li>
+                    <li>Step5: Click "Bluetooth switch"</li>
+          </ul>
+          <p>As the following figure shows, we end up on the screenshot with the Bluetooth. We turn Bluetooth off, effectively completing the target task.</p>
+          <img src="./static/images/demo6.png" alt="Turn Bluetooth Off" width="95%">
+
+          <!-- Play Music Playlist -->
+          <h3>Play Music Playlist</h3>
+          <p>The targeted task to be executed is "Search for the artist Eric Clapton, enter his artist page, and play his playlist". The actual execution steps can be summarized as follows:</p>
+          <ul>
+                    <li>Step1: Open "Spotify" App</li>
+                    <li>Step2: Click "Search"</li>
+                    <li>Step3: Click SearchBar</li>
+                    <li>Step4: Type "Eric Clapton"</li>
+                    <li>Step5: Click "Play"</li>
+          </ul>
+          <p>As the following figure shows, we end up on the screenshot with the playlist. We play the Eric Clapton's playlist, effectively completing the target task.</p>
+          <img src="./static/images/demo7.png" alt="Play Music Playlist" width="95%">
+
+          <!-- Join a community -->
+          <h3>Join a community</h3>
+          <p>The targeted task to be executed is "Enter a community page and ask to join". The actual execution steps can be summarized as follows:</p>
+          <ul>
+                    <li>Step1: Open "Twitter" App</li>
+                    <li>Step2: Click "communities"</li>
+                    <li>Step3: Click a community</li>
+                    <li>Step4: Click "Join"</li>
+                    <li>Step5: Click "Agree and join"</li>
+          </ul>
+          <p>As the following figure shows, we end up on the screenshot with a community. We join the large language model community, effectively completing the target task.</p>
+          <img src="./static/images/demo8.png" alt="Join a community" width="95%">          
+          <!-- Math Counting Error -->
+          <h3>Math Counting Error</h3>
+          <p>The targeted task to be executed is "Create a playlist in Retro Music titled 'Reggae Rhythms 51' with a duration between 45 and 50 minutes using the provided songs". The actual execution steps can be summarized as follows:</p>
+          <ul>
+                    <li>Step1: Open app "Retro Music" App</li>
+                    <li>Step2: Click "Playlist"</li>
+                    <li>Step3: Click "More Options"</li>
+                    <li>Step4: Click "New Playlist"</li>
+                    <li>Step5: Type "Reggae Rhythms 51"</li>
+                    <li>Step6: Click "Create"</li>
+                    <li>Step7: Click "Songs"</li>
+                    <li>Step8: Long Press "Golden Days"</li>
+                    <li>Step9: Click "Add to playlist"</li>
+                    <li>Step10: Click "Reggae Rhythms 51"</li>
+                    <li>Step11: Long Press "Beyond the Horizon"</li>
+                    <li>Step12: Click "Add to playlist"</li>
+                    <li>Step13: Click "Reggae Rhythms 51"</li>
+                    <li>Step14: Long Press "Chasing Shadows"</li>
+                    <li>Step15: . . .</li>
+          </ul>
+          <p>As the following figure shows, since the model has no way to calculate the duration of the song added, it will consider that the task has not been completed, and continue to add songs, resulting in task failure.</p>
+          <img src="./static/images/demo9.png" alt="Math Counting Error" width="95%">
+
+          <!-- Memorization Error -->
+          <h3>Memorization Error</h3>
+          <p>The targeted task to be executed is "Add the recipes from recipes.txt in Markor to the Broccoli recipe app". The actual execution steps can be summarized as follows:</p>
+          <ul>
+                    <li>Step1: Open "Markor" App</li>
+                    <li>Step2: Click "recipes.txt"</li>
+                    <li>Step3: Quote the content</li>
+                    <li>Step4: Navigate Home</li>
+                    <li>Step5: Open "Broccolirecipe" App</li>
+                    <li>Step6: Click "Add"</li>
+                    <li>Step7: Type Title content</li>
+                    <li>Step8: Type Description content</li>
+                    <li>Step9: Type Serving content</li>
+                    <li>Step10: Type Time content</li>
+                    <li>Step11: Type Ingredients content</li>
+                    <li>Step12: Type "Save"</li>
+                    <li>Step13: Click "Add"</li>
+                    <li>Step14: Type Title content</li>
+                    <li>Step15: Fail</li>
+          </ul>
+          <p>As the following figure shows, we end up on the screenshot with a Pages that have not been filled out. This is because the number of steps of the task exceeds the maximum number of steps that the model can carry.</p>
+          <img src="./static/images/demo10.png" alt="Memorization Error" width="95%"> 
+          <!-- Vision Error -->
+          <h3>Vision Error</h3>
+          <p>The targeted task to be executed is "Open the file task.html in Downloads in the file manager; when prompted open it with Chrome. Then create a drawing using the three colors shown at the top and hit submit". The actual execution steps can be summarized as follows:</p>
+          <ul>
+                    <li>Step1: Open "Files" App</li>
+                    <li>Step2: Click "task.html"</li>
+                    <li>Step3: Click "Open with Chrome"</li>
+                    <li>Step4: Click "Colors"</li>
+                    <li>Step5: Fail</li>
+          </ul>
+          <p>As the following figure shows, we end up on the screenshot with an empty drawing. This is because the model has no visual information, resulting in the failure to obtain specific color information and the failure to perform the task of selecting colors.</p>
+          <img src="./static/images/demo11.png" alt="Vision Error" width="95%">   
+        </div>
+      </div>
+    </div>
+    <br>
+  </section>
+
+  <!-- <section class="section">
+    <div class="container is-max-widescreen">
+      <h2 class="title">Corresponding Authors</h2>
+      <div class="column is-10 is-offset-1">
+        <div class="columns has-text-centered"> -->
+          <!-- TODO -->
+          <!-- <div class="column">
+            <figure class="image is-128x128" style="margin-left: auto; margin-right: auto">
+              <a href="https://xiang-deng.github.io/">
+                <img class="is-rounded profile" src="https://xiang-deng.github.io/images/profile.jpg">
+              </a>
+              <a href="https://xiang-deng.github.io/">
+                <figcaption>Xiang Deng</figcaption>
+              </a>
+          </div>
+          <div class="column">
+            <figure class="image is-128x128" style="margin-left: auto; margin-right: auto">
+              <a href="http://web.cse.ohio-state.edu/~sun.397/">
+                <img class="is-rounded profile" src="http://web.cse.ohio-state.edu/~sun.397/huansun2018-2.png">
+              </a>
+              <a href="http://web.cse.ohio-state.edu/~sun.397/">
+                <figcaption>Huan Sun</figcaption>
+              </a>
+          </div>
+          <div class="column">
+            <figure class="image is-128x128" style="margin-left: auto; margin-right: auto">
+              <a href="https://ysu1989.github.io/">
+                <img class="is-rounded profile" src="https://ysu1989.github.io/images/avatar.jpg">
+              </a>
+              <a href="https://ysu1989.github.io/">
+                <figcaption>Yu Su</figcaption>
+              </a>
+          </div> -->
+        <!-- </div>
+      </div>
+    </div>
+  </section> -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <!-- TODO -->
+        <a class="icon-link" href="https://github.com/" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              <!-- TODO -->
+              This means you are free to borrow the <a href="https://github.com/">source
+                code</a> of this website (the website is hosted on the gh-pages branch of the repository),
+              we just ask that you link back to this page in the footer.
+              The design of this website is based on <a href="https://nerfies.github.io/">NERFies</a> ,<a
+                href="https://ds1000-code-gen.github.io/" target="_blank">DS-1000</a> and <a
+                href="https://webshop-pnlp.github.io/" target="_blank">WebShop</a>. Please
+              remember to remove the analytics code included in the header of the website which you do not want on
+              your website. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
