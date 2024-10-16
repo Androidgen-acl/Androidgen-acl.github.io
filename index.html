@@ -308,7 +308,7 @@ agent without manually labeled trajectories. We extensively evaluate AndroidGen 
         <div class="column">
           <md-block clss="content">
             <img src="./static/images/demo-android (1)_00.png" alt="Join a community" width="95%">  
-            <p><strong>As shown in the figure, We give specific examples of AndroidGen's operation on Youtube, Message, Google Map, and Twitter.</p></strong>
+            <p><strong>Examples of AndroidGen's execution on Youtube, Message, Google Map, and Twitter.</p></strong>
           </md-block>
         </div>
     </div>
@@ -403,12 +403,10 @@ agent without manually labeled trajectories. We extensively evaluate AndroidGen 
         <md-block class="content">
           <!-- TODO -->
           <img src="./static/images/main.png" alt="Framework" style="width:100%">
-          Overview of AndroidGen framework designed to complete tasks in Android. 
+          <strong>Overview of AndroidGen framework designed to complete tasks in Android.</strong> 
           Our process comprises three stages: preliminary, task execution, and update. 
           Preliminary (a): ExpSearch retrieve the top-1 similar tasks and trajectories from the database and feed them into the agent. 
-          <br>
           Task Execution (b): ReflectPlan assesses the progress and updates the plan. Then, the agent generates operations based on the environment, plan, and retrieval example. AutoCheck verifies these operations, executing them if successful or regenerating them if not. 
-          <br>
           Update (c): StepCritic evaluates the trajectories in fine-grand and updates the database accordingly.
         </md-block>
       </div>
