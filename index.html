@@ -162,15 +162,11 @@
         <div class="column highlight is-8 content">
           <span style="font-weight:bold">
             <!-- TODO -->
-            Large Language Models have opened up a world of possibilities for various NLP tasks, sparking optimism for the future.
-            Despite their potential, LLMs have yet to be widely used as agents on real mobile devices.
-            The main challenge is the need for high-quality data sources.
-            Even SOTA LLMs fail to perform tasks due to insufficient capabilities and the absence of robust data evaluation.
-            On the other hand, human annotation is often hindered by time constraints and labor intensity.
-            Given these challenges, we develop a framework called AndroidGen to enhance the capabilities of LLM-based agents to reason and generalize under data scarcity. 
-            In addition, we propose an Android data pipeline based on AndroidGen and train Llama-3-70B on the data collected through this pipeline to develop an open-source mobile agent without manually labeled trajectories.
-            We extensively evaluate AndroidGen with AndroidWorld, AitW, and various popular applications, demonstrating its improvements and revealing potential areas for future improvement.
-
+Large Language Models have opened up a world of possibilities for various NLP tasks, sparking optimism for the future. Despite their potential, LLMs have yet to be widely 
+used as agents on real mobile devices. The main challenge is the need for high-quality data sources. Time constraints and labor intensity often hinder human annotation. On the 
+other hand, existing LLMs exhibit inadequate completion rates and need a robust data filtration strategy. Given these challenges, we develop a framework called ANDROIDGEN to
+enhance the capabilities of LLM-based agents under data scarcity. In addition, we leverage ANDROIDGEN to collect trajectories given human tasks and train Llama-3-70B on these trajectories to develop an open-source mobile
+agent without manually labeled trajectories. We extensively evaluate ANDROIDGEN with AndroidWorld, AitW, and various popular applications, demonstrating its improvements and revealing potential areas for future improvement.
           </span>
           <br>
         </div>
@@ -443,14 +439,14 @@
         <md-block class="content">
           <!-- TODO -->
           <img src="./static/images/main.png" alt="Framework" style="width:100%">
-          Overview of our AndroidGen system designed to complete tasks in Android. 
-          Our process comprises three stages: preliminary, task execution, and update. 
+          Overview of ANDROIDGEN framework designed to complete tasks in Android. Our process comprises
+          three stages: preliminary, task execution, and update. 
           <br>
           Preliminary (a): ExpSearch retrieve the top-1 similar tasks and trajectories from the database and feed them into the agent. 
           <br>
-          Task Execution (b): ReflectPlan reflects and updates the plan status. Then, the agent generates operations based on the plan and retrieval example. AutoCheck verifies these operations, executing them if successful or regenerating them if not.
-          <br> 
-          Update (c): StepCritic assesses the trajectories in fine-grand and updates the database accordingly.
+          Task Execution (b): ReflectPlan assesses the progress and updates the plan. Then, the agent generates operations based on the environment, plan, and retrieval example. AutoCheck verifies these operations, executing them if successful or regenerating them if not. 
+          <br>
+          Update (c): StepCritic evaluates the trajectories in fine-grand and updates the database accordingly.
         </md-block>
       </div>
     </div>
