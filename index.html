@@ -164,9 +164,9 @@
             <!-- TODO -->
 Large Language Models have opened up a world of possibilities for various NLP tasks, sparking optimism for the future. Despite their potential, LLMs have yet to be widely 
 used as agents on real mobile devices. The main challenge is the need for high-quality data sources. Time constraints and labor intensity often hinder human annotation. On the 
-other hand, existing LLMs exhibit inadequate completion rates and need a robust data filtration strategy. Given these challenges, we develop a framework called ANDROIDGEN to
-enhance the capabilities of LLM-based agents under data scarcity. In addition, we leverage ANDROIDGEN to collect trajectories given human tasks and train Llama-3-70B on these trajectories to develop an open-source mobile
-agent without manually labeled trajectories. We extensively evaluate ANDROIDGEN with AndroidWorld, AitW, and various popular applications, demonstrating its improvements and revealing potential areas for future improvement.
+other hand, existing LLMs exhibit inadequate completion rates and need a robust data filtration strategy. Given these challenges, we develop a framework called AndroidGen to
+enhance the capabilities of LLM-based agents under data scarcity. In addition, we leverage AndroidGen to collect trajectories given human tasks and train Llama-3-70B on these trajectories to develop an open-source mobile
+agent without manually labeled trajectories. We extensively evaluate AndroidGen with AndroidWorld, AitW, and various popular applications, demonstrating its improvements and revealing potential areas for future improvement.
           </span>
           <br>
         </div>
@@ -192,24 +192,6 @@ agent without manually labeled trajectories. We extensively evaluate ANDROIDGEN 
                     <source src="./static/videos/demo4.mp4" type="video/mp4">
                 </video>
             </div>
-            <div class="column is-one-quarter video-column">
-                <div class="overlay">
-                    <p>(c) Enter a community page and ask to join.</p>
-                </div>
-                <video class="video" controls autoplay playsinline muted loop>
-                    <source src="./static/videos/demo6.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-one-quarter video-column">
-                <div class="overlay">
-                    <p>(d) Search for the channel "tesla" and subscribe to the channel.</p>
-                </div>
-                <video class="video" controls autoplay playsinline muted loop>
-                    <source src="./static/videos/demo7.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <!-- 第二行 -->
         <div class="columns is-centered is-variable is-0">
             <div class="column is-one-quarter video-column">
                 <div class="overlay">
@@ -227,6 +209,8 @@ agent without manually labeled trajectories. We extensively evaluate ANDROIDGEN 
                     <source src="./static/videos/demo5.mp4" type="video/mp4">
                 </video>
             </div>
+        </div>
+        <!-- 第二行 -->
             <div class="column is-one-quarter video-column">
                 <div class="overlay">
                     <p>(g) Search for the artist Eric Clapton, enter his artist page, and play his playlist.</p>
@@ -235,17 +219,6 @@ agent without manually labeled trajectories. We extensively evaluate ANDROIDGEN 
                     <source src="./static/videos/demo8.mp4" type="video/mp4">
                 </video>
             </div>
-            <div class="column is-one-quarter video-column">
-                <div class="overlay">
-                    <p>(h) Search the song "Smooth Criminal" and add it to my Liked Songs playlist.</p>
-                </div>
-                <video class="video" controls autoplay playsinline muted loop>
-                    <source src="./static/videos/demo9.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <!-- 第三行 -->
-        <div class="columns is-centered is-variable is-0">
             <div class="column is-one-quarter video-column">
                 <div class="overlay">
                     <p>(i) Record an audio clip and save it with name "presentation_fGwr.m4a" using Audio Recorder.</p>
@@ -269,14 +242,6 @@ agent without manually labeled trajectories. We extensively evaluate ANDROIDGEN 
                 </div>
                 <video class="video" controls autoplay playsinline muted loop>
                     <source src="./static/videos/demo11.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-one-quarter video-column">
-                <div class="overlay">
-                    <p>(l) Create a new contact for Hugo Pereira. Their number is +13920741751.</p>
-                </div>
-                <video class="video" controls autoplay playsinline muted loop>
-                    <source src="./static/videos/demo12.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -344,7 +309,7 @@ agent without manually labeled trajectories. We extensively evaluate ANDROIDGEN 
         <div class="column">
           <md-block clss="content">
             <img src="./static/images/demo-android (1)_00.png" alt="Join a community" width="95%">  
-            <p><strong>As shown in the figure, we gave Examples of AndroidGen’s execution on four user tasks.</p></strong>
+            <p><strong>As shown in the figure, We give specific examples of AndroidGen's operation on Youtube, Message, Google Map, and Twitter.</p></strong>
           </md-block>
         </div>
     </div>
@@ -439,9 +404,8 @@ agent without manually labeled trajectories. We extensively evaluate ANDROIDGEN 
         <md-block class="content">
           <!-- TODO -->
           <img src="./static/images/main.png" alt="Framework" style="width:100%">
-          Overview of ANDROIDGEN framework designed to complete tasks in Android. Our process comprises
-          three stages: preliminary, task execution, and update. 
-          <br>
+          Overview of AndroidGen framework designed to complete tasks in Android. 
+          Our process comprises three stages: preliminary, task execution, and update. 
           Preliminary (a): ExpSearch retrieve the top-1 similar tasks and trajectories from the database and feed them into the agent. 
           <br>
           Task Execution (b): ReflectPlan assesses the progress and updates the plan. Then, the agent generates operations based on the environment, plan, and retrieval example. AutoCheck verifies these operations, executing them if successful or regenerating them if not. 
